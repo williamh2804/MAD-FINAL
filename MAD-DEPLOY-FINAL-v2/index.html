@@ -597,6 +597,7 @@ footer {
   </div>
 
   <div class="cat-pills" id="catPills">
+    <button class="cp" onclick="filterCat('all',this)">All</button>
     <button class="cp on" onclick="filterCat('burgers',this)">Burgers</button>
     <button class="cp" onclick="filterCat('sandwiches',this)">Sandwiches</button>
     <button class="cp" onclick="filterCat('wraps',this)">Wraps</button>
@@ -800,7 +801,7 @@ function filterCat(cat, btn) {
   document.querySelectorAll('.cp').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   document.querySelectorAll('.mc, .cat-sec-head').forEach(el => {
-    if (el.dataset.cat === cat) {
+    if (cat === 'all' || el.dataset.cat === cat) {
       el.classList.add('visible');
     } else {
       el.classList.remove('visible');
